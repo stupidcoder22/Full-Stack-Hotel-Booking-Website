@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
-
-const url = "mongodb://localhost:27017/BookingApp";
+import dotenv from "dotenv";
+dotenv.config();
+const url = process.env.MONGO;
 const connection = async () => {
-  const mongo = await mongoose.connect(url);
-  if (mongo) {
-    console.log("database is connected");
-  } else {
-    console.log("database is not connected");
+  try {
+    await mongoose.connect(url);
+    console.log("connected to database");
+  } catch (error) {
+    throw error;
   }
 };
 
