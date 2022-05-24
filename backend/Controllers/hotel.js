@@ -12,6 +12,7 @@ export const createHotel = async (req, res, next) => {
 
 export const updateHotel = async (req, res, next) => {
   try {
+    console.log("first");
     const updatehotel = await Hotel.findByIdAndUpdate(
       req.params.id,
       {
